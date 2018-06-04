@@ -1,2 +1,3 @@
-# basic-boilerplate
+#### React + mo.js
+
 webpack + babel, made basic structure for develop ES6 (or Vanilla) plugins / utils / react components
