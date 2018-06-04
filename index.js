@@ -5,3 +5,5 @@ async function foo() {
 foo().then(function(val) {
   console.log(val);
 });
+
+// test
