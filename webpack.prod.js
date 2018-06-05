@@ -6,6 +6,7 @@ const webpackVisualizerPlugin = require('webpack-visualizer-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -20,13 +21,14 @@ module.exports = merge(common, {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
+      filename: '[name].[contenthash].css',
       chunkFilename: '[id].css'
     }),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require('./vendor-manifest.json')
-    })
+    }),
+    new WebpackMd5Hash()
   ],
   output: {
     filename: 'index.[chunkhash].js',
