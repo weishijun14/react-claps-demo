@@ -20,7 +20,7 @@ module.exports = merge(common, {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new MiniCssExtractPlugin({
-      filename: 'index[hash].css',
+      filename: '[name].[hash].css',
       chunkFilename: '[id].css'
     }),
     new webpack.DllReferencePlugin({
