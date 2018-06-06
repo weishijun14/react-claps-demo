@@ -7,6 +7,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = merge(common, {
   mode: 'production',
@@ -16,9 +17,6 @@ module.exports = merge(common, {
     new webpackVisualizerPlugin(),
     new UglifyJsPlugin({
       sourceMap: true
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
@@ -31,7 +29,7 @@ module.exports = merge(common, {
     new WebpackMd5Hash()
   ],
   output: {
-    filename: 'index.[chunkhash].js',
+    filename: devMode ? 'index.[hash].js' : 'index.[chunkhash].js',
     path: path.resolve(__dirname, 'dist')
   }
 });

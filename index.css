@@ -12,3 +12,15 @@ body {
   height: 100px;
   background: #572B53;
 }
+
+.icobutton {
+  font-size: 48px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: #c0c1c3;
+  border: none;
+  background: none;
+  overflow: visible;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
