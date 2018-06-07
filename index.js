@@ -1,6 +1,9 @@
 import './index.css';
 import mojs from 'mo-js';
 import MojsPlayer from 'mojs-player';
+// svg icon 方案使用 iconfont的font class 或者是 awesome font的 svg js。
+// 并未考虑 单纯的 icon font / inline svg  / svg symbol.
+// svg sprites 待考察。
 
 const redCircle = new mojs.Shape({
   left: 0,
